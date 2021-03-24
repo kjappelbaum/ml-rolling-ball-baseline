@@ -1,6 +1,6 @@
 {
   "name": "ml-rolling-ball-baseline",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Rolling ball baseline correction",
   "main": "lib/index.js",
   "module": "src/index.js",
