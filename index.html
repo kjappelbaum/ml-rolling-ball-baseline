@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>ml-rolling-ball-baseline 0.1.0 | Documentation</title>
+  <title>ml-rolling-ball-baseline 1.0.0 | Documentation</title>
   <meta name='description' content='Rolling ball baseline correction'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>ml-rolling-ball-baseline</h3>
-          <div class='mb1'><code>0.1.0</code></div>
+          <div class='mb1'><code>1.0.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -57,7 +57,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/ml-rolling-ball-baseline/blob/9f3a30f582aa1640b81f3cd5dd6eb42e7d6fa56c/src/rollingBall.js#L29-L173'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/rolling-ball-baseline/blob/be9c590af04afdae0f48e9beb409c068b62478c2/src/rollingBall.js#L28-L70'>
       <span>src/rollingBall.js</span>
       </a>
     
@@ -70,8 +70,6 @@ From the abstract of (1):
 [...] and is considerably more robust for multiple overlapping peaks, rapidly varying background [...]</p>
 <p>The baseline is the trace one gets by rolling a ball below a spectrum. Algorithm has three steps:
 Finding the minima in each window, find maxima among minima and then smooth over them by averaging.</p>
-<p>Algorithm described in (1), but in the implementation here the window width does not change.
-Following the implementation of the R baseline package (2)</p>
 <p>Reference:
 (1) Kneen, M. A.; Annegarn, H. J.
 Algorithm for Fitting XRF, SEM and PIXE X-Ray Spectra Backgrounds.
@@ -80,7 +78,7 @@ Nuclear Instruments and Methods in Physics Research Section B: Beam Interactions
 (2) Kristian Hovde Liland, Bjørn-Helge Mevik, Roberto Canteri: baseline.
 <a href="https://cran.r-project.org/web/packages/baseline/index.html">https://cran.r-project.org/web/packages/baseline/index.html</a></p>
 
-    <div class='pre p1 fill-light mt0'>rollingBall(spectrum: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, options: any)</div>
+    <div class='pre p1 fill-light mt0'>rollingBall(spectrum: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -105,10 +103,44 @@ Nuclear Instruments and Methods in Physics Research Section B: Beam Interactions
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>options</span> <code class='quiet'>(any
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
 	    
           </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.windowM</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?</code>
+  </td>
+  <td class='break-word'><span>width of local window for minimization/maximization, defaults to 4% of the spectrum length
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.windowS</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?</code>
+  </td>
+  <td class='break-word'><span>width of local window for smoothing, defaults to 8% of the specturm length
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
           
         </div>
       
