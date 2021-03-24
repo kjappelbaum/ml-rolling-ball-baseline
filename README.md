@@ -4,7 +4,7 @@
 [![build status][ci-image]][ci-url]
 [![npm download][download-image]][download-url]
 
-Rolling ball baseline correction. The algorithm was initially described in [[1]](#ref1). ƒ
+Rolling ball baseline correction. The algorithm was initially described in [[1]](#ref1).
 
 <a name="ref1"></a> 1. [Kneen, M. A.; Annegarn, H. J. Algorithm for Fitting XRF, SEM and PIXE X-Ray Spectra Backgrounds. Nuclear Instruments and Methods in Physics Research Section B: Beam Interactions with Materials and Atoms 1996, 109–110, 209–213.](<https://doi.org/10.1016/0168-583X(95)00908-6>)
 
@@ -30,7 +30,7 @@ const spectrum=[1, 2, 1, ...];
 const baseline = rollingBall(spectrum, 200, 400);
 ```
 
-## [API Documentation](https://mljs.github.io/ml-rolling-ball-baseline/)
+## [API Documentation](https://mljs.github.io/rolling-ball-baseline/)
 
 ## License
 
@@ -38,7 +38,7 @@ const baseline = rollingBall(spectrum, 200, 400);
 
 [npm-image]: https://img.shields.io/npm/v/ml-rolling-ball-baseline.svg
 [npm-url]: https://www.npmjs.com/package/ml-rolling-ball-baseline
-[ci-image]: https://github.com/mljs/ml-rolling-ball-baseline/workflows/Node.js%20CI/badge.svg?branch=master
-[ci-url]: https://github.com/mljs/ml-rolling-ball-baseline/actions?query=workflow%3A%22Node.js+CI%22
+[ci-image]: https://github.com/mljs/rolling-ball-baseline/workflows/Node.js%20CI/badge.svg?branch=master
+[ci-url]: https://github.com/mljs/rolling-ball-baseline/actions?query=workflow%3A%22Node.js+CI%22
 [download-image]: https://img.shields.io/npm/dm/ml-rolling-ball-baseline.svg
 [download-url]: https://www.npmjs.com/package/ml-rolling-ball-baseline
