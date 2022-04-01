@@ -39,6 +39,6 @@
   },
   "dependencies": {
     "is-any-array": "^2.0.0",
-    "ml-spectra-processing": "^11.1.0"
+    "ml-spectra-processing": "^11.2.0"
   }
 }
