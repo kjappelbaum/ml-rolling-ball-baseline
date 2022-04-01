@@ -23,7 +23,7 @@ import min from 'ml-array-min';
  * @param {Array} spectrum
  * @param {Object} [options={}]
  * @param {Number} [options.windowM] - width of local window for minimization/maximization, defaults to 4% of the spectrum length
- * @param {Number} [options.windowS] - width of local window for smoothing, defaults to 8% of the specturm length
+ * @param {Number} [options.windowS] - width of local window for smoothing, defaults to 8% of the spectrum length
  */
 export function rollingBall(spectrum, options = {}) {
   if (!isAnyArray(spectrum)) {
@@ -48,21 +48,21 @@ export function rollingBall(spectrum, options = {}) {
 
   // fi(1) in original paper
   for (let i = 0; i < spectrum.length; i++) {
-    let windowLeft = max([0, i - windowM]);
-    let windowRight = min([i + windowM + 1, spectrum.length]);
+    let windowLeft = Math.max(0, i - windowM);
+    let windowRight = Math.min(i + windowM + 1, spectrum.length);
     minima[i] = min(spectrum.slice(windowLeft, windowRight));
   }
 
   // fi in original paper
   for (let i = 0; i < minima.length; i++) {
-    let windowLeft = max([0, i - windowM]);
-    let windowRight = min([i + windowM + 1, minima.length]);
+    let windowLeft = Math.max(0, i - windowM);
+    let windowRight = Math.min(i + windowM + 1, minima.length);
     maxima[i] = max(minima.slice(windowLeft, windowRight));
   }
 
   for (let i = 0; i < minima.length; i++) {
-    let windowLeft = max([0, i - windowS]);
-    let windowRight = min([i + windowS + 1, maxima.length]);
+    let windowLeft = Math.max(0, i - windowS);
+    let windowRight = Math.min(i + windowS + 1, maxima.length);
     baseline[i] = mean(maxima.slice(windowLeft, windowRight));
   }
 
