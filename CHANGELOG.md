@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/mljs/rolling-ball-baseline/compare/v1.0.0...v1.1.0) (2022-04-01)
+
+
+### Features
+
+* improve performance by remove slice ([196df40](https://github.com/mljs/rolling-ball-baseline/commit/196df40d73d3ed68f954062fc701a3ea01361652))
+
 ## [1.0.0](https://www.github.com/mljs/rolling-ball-baseline/compare/v0.1.0...v1.0.0) (2021-03-24)
 
 
