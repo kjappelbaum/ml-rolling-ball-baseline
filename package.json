@@ -29,13 +29,13 @@
   },
   "homepage": "https://github.com/mljs/rolling-ball-baseline#readme",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.7",
     "@types/jest": "^27.4.1",
-    "eslint": "^8.10.0",
-    "eslint-config-cheminfo": "^7.2.2",
+    "eslint": "^8.12.0",
+    "eslint-config-cheminfo": "^7.3.0",
     "jest": "^27.5.1",
-    "prettier": "^2.5.1",
-    "rollup": "^2.69.0"
+    "prettier": "^2.6.1",
+    "rollup": "^2.70.1"
   },
   "dependencies": {
     "is-any-array": "^2.0.0",
