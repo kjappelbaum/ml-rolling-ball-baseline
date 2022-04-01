@@ -1,7 +1,5 @@
 import { isAnyArray } from 'is-any-array';
-import max from 'ml-array-max';
-import mean from 'ml-array-mean';
-import min from 'ml-array-min';
+import { xMean, xMaxValue, xMinValue } from 'ml-spectra-processing';
 
 /**
  * Rolling ball baseline correction algorithm.
@@ -50,20 +48,20 @@ export function rollingBall(spectrum, options = {}) {
   for (let i = 0; i < spectrum.length; i++) {
     let windowLeft = Math.max(0, i - windowM);
     let windowRight = Math.min(i + windowM + 1, spectrum.length);
-    minima[i] = min(spectrum.slice(windowLeft, windowRight));
+    minima[i] = xMinValue(spectrum.slice(windowLeft, windowRight));
   }
 
   // fi in original paper
   for (let i = 0; i < minima.length; i++) {
     let windowLeft = Math.max(0, i - windowM);
     let windowRight = Math.min(i + windowM + 1, minima.length);
-    maxima[i] = max(minima.slice(windowLeft, windowRight));
+    maxima[i] = xMaxValue(minima.slice(windowLeft, windowRight));
   }
 
   for (let i = 0; i < minima.length; i++) {
     let windowLeft = Math.max(0, i - windowS);
     let windowRight = Math.min(i + windowS + 1, maxima.length);
-    baseline[i] = mean(maxima.slice(windowLeft, windowRight));
+    baseline[i] = xMean(maxima.slice(windowLeft, windowRight));
   }
 
   return baseline;
