@@ -12,7 +12,7 @@ describe('test rollingball', () => {
       ).toBeLessThan(0.2);
     }
 
-    let y = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    let y = new Float64Array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
     let correction = rollingBall(y);
 
     for (let i = 0; i < y.length; i++) {

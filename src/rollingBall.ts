@@ -23,7 +23,15 @@ import { xMean, xMaxValue, xMinValue } from 'ml-spectra-processing';
  * @param {Number} [options.windowM] - width of local window for minimization/maximization, defaults to 4% of the spectrum length
  * @param {Number} [options.windowS] - width of local window for smoothing, defaults to 8% of the spectrum length
  */
-export function rollingBall(spectrum, options = {}) {
+
+interface Options {
+  windowM: number;
+  windowS: number;
+}
+export function rollingBall(
+  spectrum: Float64Array,
+  options: Partial<Options> = {}, // not specific enough => put two optional parameters with specific type
+): Float64Array {
   if (!isAnyArray(spectrum)) {
     throw new Error('Spectrum must be an array');
   }
@@ -32,7 +40,7 @@ export function rollingBall(spectrum, options = {}) {
     throw new TypeError('Spectrum must not be empty');
   }
 
-  const numberPoints = spectrum.length;
+  const numberPoints: number = spectrum.length;
   const maxima = new Float64Array(numberPoints);
   const minima = new Float64Array(numberPoints);
   const baseline = new Float64Array(numberPoints);
@@ -46,8 +54,8 @@ export function rollingBall(spectrum, options = {}) {
 
   // fi(1) in original paper
   for (let i = 0; i < spectrum.length; i++) {
-    let windowLeft = Math.max(0, i - windowM);
-    let windowRight = Math.min(i + windowM + 1, spectrum.length);
+    let windowLeft: number = Math.max(0, i - windowM);
+    let windowRight: number = Math.min(i + windowM + 1, spectrum.length);
 
     minima[i] = xMinValue(spectrum, {
       fromIndex: windowLeft,
@@ -57,8 +65,8 @@ export function rollingBall(spectrum, options = {}) {
 
   // fi in original paper
   for (let i = 0; i < minima.length; i++) {
-    let windowLeft = Math.max(0, i - windowM);
-    let windowRight = Math.min(i + windowM + 1, minima.length);
+    let windowLeft: number = Math.max(0, i - windowM);
+    let windowRight: number = Math.min(i + windowM + 1, minima.length);
     maxima[i] = xMaxValue(minima, {
       fromIndex: windowLeft,
       toIndex: windowRight,
@@ -66,8 +74,8 @@ export function rollingBall(spectrum, options = {}) {
   }
 
   for (let i = 0; i < minima.length; i++) {
-    let windowLeft = Math.max(0, i - windowS);
-    let windowRight = Math.min(i + windowS + 1, maxima.length);
+    let windowLeft: number = Math.max(0, i - windowS);
+    let windowRight: number = Math.min(i + windowS + 1, maxima.length);
     baseline[i] = xMean(maxima.subarray(windowLeft, windowRight));
   }
 
