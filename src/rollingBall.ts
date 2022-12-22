@@ -1,3 +1,4 @@
+import { NumberArray } from 'cheminfo-types';
 import { isAnyArray } from 'is-any-array';
 import { xMean, xMaxValue, xMinValue } from 'ml-spectra-processing';
 
@@ -29,9 +30,9 @@ interface Options {
   windowS: number;
 }
 export function rollingBall(
-  spectrum: Float64Array,
+  spectrum: NumberArray,
   options: Partial<Options> = {}, // not specific enough => put two optional parameters with specific type
-): Float64Array {
+): NumberArray {
   if (!isAnyArray(spectrum)) {
     throw new Error('Spectrum must be an array');
   }
@@ -40,7 +41,7 @@ export function rollingBall(
     throw new TypeError('Spectrum must not be empty');
   }
 
-  const numberPoints: number = spectrum.length;
+  const numberPoints = spectrum.length;
   const maxima = new Float64Array(numberPoints);
   const minima = new Float64Array(numberPoints);
   const baseline = new Float64Array(numberPoints);
@@ -54,8 +55,8 @@ export function rollingBall(
 
   // fi(1) in original paper
   for (let i = 0; i < spectrum.length; i++) {
-    let windowLeft: number = Math.max(0, i - windowM);
-    let windowRight: number = Math.min(i + windowM + 1, spectrum.length);
+    let windowLeft = Math.max(0, i - windowM);
+    let windowRight = Math.min(i + windowM + 1, spectrum.length);
 
     minima[i] = xMinValue(spectrum, {
       fromIndex: windowLeft,
@@ -65,8 +66,8 @@ export function rollingBall(
 
   // fi in original paper
   for (let i = 0; i < minima.length; i++) {
-    let windowLeft: number = Math.max(0, i - windowM);
-    let windowRight: number = Math.min(i + windowM + 1, minima.length);
+    let windowLeft = Math.max(0, i - windowM);
+    let windowRight = Math.min(i + windowM + 1, minima.length);
     maxima[i] = xMaxValue(minima, {
       fromIndex: windowLeft,
       toIndex: windowRight,
@@ -74,8 +75,8 @@ export function rollingBall(
   }
 
   for (let i = 0; i < minima.length; i++) {
-    let windowLeft: number = Math.max(0, i - windowS);
-    let windowRight: number = Math.min(i + windowS + 1, maxima.length);
+    let windowLeft = Math.max(0, i - windowS);
+    let windowRight = Math.min(i + windowS + 1, maxima.length);
     baseline[i] = xMean(maxima.subarray(windowLeft, windowRight));
   }
 
