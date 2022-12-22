@@ -31,7 +31,7 @@ interface Options {
 }
 export function rollingBall(
   spectrum: NumberArray,
-  options: Partial<Options> = {}, // not specific enough => put two optional parameters with specific type
+  options: Partial<Options> = {},
 ): NumberArray {
   if (!isAnyArray(spectrum)) {
     throw new Error('Spectrum must be an array');
