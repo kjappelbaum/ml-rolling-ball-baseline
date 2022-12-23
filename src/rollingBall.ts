@@ -1,3 +1,4 @@
+import { NumberArray } from 'cheminfo-types';
 import { isAnyArray } from 'is-any-array';
 import { xMean, xMaxValue, xMinValue } from 'ml-spectra-processing';
 
@@ -23,7 +24,15 @@ import { xMean, xMaxValue, xMinValue } from 'ml-spectra-processing';
  * @param {Number} [options.windowM] - width of local window for minimization/maximization, defaults to 4% of the spectrum length
  * @param {Number} [options.windowS] - width of local window for smoothing, defaults to 8% of the spectrum length
  */
-export function rollingBall(spectrum, options = {}) {
+
+interface Options {
+  windowM: number;
+  windowS: number;
+}
+export function rollingBall(
+  spectrum: NumberArray,
+  options: Partial<Options> = {},
+): NumberArray {
   if (!isAnyArray(spectrum)) {
     throw new Error('Spectrum must be an array');
   }
