@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/mljs/rolling-ball-baseline/compare/v1.1.0...v2.0.0) (2022-12-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate project to TypeScript ([#18](https://github.com/mljs/rolling-ball-baseline/issues/18))
+
+### Miscellaneous Chores
+
+* migrate project to TypeScript ([#18](https://github.com/mljs/rolling-ball-baseline/issues/18)) ([246e1cc](https://github.com/mljs/rolling-ball-baseline/commit/246e1cce96c4e62b85a75a75b3336aa31b6f8701))
+
 ## [1.1.0](https://github.com/mljs/rolling-ball-baseline/compare/v1.0.0...v1.1.0) (2022-04-01)
 
 
