@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/mljs/rolling-ball-baseline/compare/v2.0.0...v2.0.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* update dependencies ([af4e3bc](https://github.com/mljs/rolling-ball-baseline/commit/af4e3bc3dddf25a2251fd2bfea7b1a31392ffb56))
+
 ## [2.0.0](https://github.com/mljs/rolling-ball-baseline/compare/v1.1.0...v2.0.0) (2022-12-23)
 
 

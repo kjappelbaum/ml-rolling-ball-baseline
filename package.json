@@ -1,6 +1,6 @@
 {
   "name": "ml-rolling-ball-baseline",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Rolling ball baseline correction",
   "main": "./lib/index.js",
   "module": "./lib-esm/index.js",
