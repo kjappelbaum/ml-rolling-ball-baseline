@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/mljs/rolling-ball-baseline/compare/v2.0.1...v2.0.2) (2023-08-22)
+
+
+### Bug Fixes
+
+* set correctly moduleResolution ([62c1618](https://github.com/mljs/rolling-ball-baseline/commit/62c161892a80a34f2be0a02b6ee81cd3f27ca6a7))
+
 ## [2.0.1](https://github.com/mljs/rolling-ball-baseline/compare/v2.0.0...v2.0.1) (2023-03-24)
 
 
