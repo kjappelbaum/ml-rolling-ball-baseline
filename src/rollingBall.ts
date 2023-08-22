@@ -55,8 +55,8 @@ export function rollingBall(
 
   // fi(1) in original paper
   for (let i = 0; i < spectrum.length; i++) {
-    let windowLeft = Math.max(0, i - windowM);
-    let windowRight = Math.min(i + windowM + 1, spectrum.length);
+    const windowLeft = Math.max(0, i - windowM);
+    const windowRight = Math.min(i + windowM + 1, spectrum.length);
 
     minima[i] = xMinValue(spectrum, {
       fromIndex: windowLeft,
@@ -66,8 +66,8 @@ export function rollingBall(
 
   // fi in original paper
   for (let i = 0; i < minima.length; i++) {
-    let windowLeft = Math.max(0, i - windowM);
-    let windowRight = Math.min(i + windowM + 1, minima.length);
+    const windowLeft = Math.max(0, i - windowM);
+    const windowRight = Math.min(i + windowM + 1, minima.length);
     maxima[i] = xMaxValue(minima, {
       fromIndex: windowLeft,
       toIndex: windowRight,
@@ -75,8 +75,8 @@ export function rollingBall(
   }
 
   for (let i = 0; i < minima.length; i++) {
-    let windowLeft = Math.max(0, i - windowS);
-    let windowRight = Math.min(i + windowS + 1, maxima.length);
+    const windowLeft = Math.max(0, i - windowS);
+    const windowRight = Math.min(i + windowS + 1, maxima.length);
     baseline[i] = xMean(maxima.subarray(windowLeft, windowRight));
   }
 

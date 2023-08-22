@@ -12,8 +12,8 @@ describe('test rollingball', () => {
       ).toBeLessThan(0.2);
     }
 
-    let y = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-    let correction = rollingBall(y);
+    const y = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const correction = rollingBall(y);
 
     for (let i = 0; i < y.length; i++) {
       expect(correction[i]).toBeCloseTo(1);
