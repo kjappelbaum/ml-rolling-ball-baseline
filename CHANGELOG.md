@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/mljs/rolling-ball-baseline/compare/v2.0.2...v2.0.3) (2024-03-07)
+
+
+### Bug Fixes
+
+* update ml-spectra-processing and dependencies ([f01649c](https://github.com/mljs/rolling-ball-baseline/commit/f01649cd51c2599ad11f9c36170016b8f5773876))
+
 ## [2.0.2](https://github.com/mljs/rolling-ball-baseline/compare/v2.0.1...v2.0.2) (2023-08-22)
 
 
